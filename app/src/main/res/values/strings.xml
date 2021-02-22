@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">ListView</string>
+    <string name="text_1">Android ListView</string>
+
+    <string-array name="Colors">
+        ​
+        <item name="color">Red</item>
+        ​
+        <item name="color">Orange</item>
+        ​
+        <item name="color">Yellow</item>
+        ​
+        <item name="color">Green</item>
+        ​
+        <item name="color">Blue</item>
+        ​
+        <item name="color">White</item>
+        ​
+        <item name="color">Black</item>
+        ​
+        <item name="color">Purple</item>
+        ​
+        <item name="color">Pink</item>
+        ​
+        <item name="color">Gray</item>
+        ​
+        <item name="color">Cyan Blue</item>
+        ​
+        <item name="color">Magenta</item>
+        ​
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
