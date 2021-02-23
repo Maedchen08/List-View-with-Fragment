@@ -7,7 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener,
+class MainActivity : AppCompatActivity(),
         OnNavigationListener {
     private lateinit var fragmentOne: FragmentOne
     private lateinit var fragmentTwo: FragmentTwo
@@ -15,10 +15,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        buttonAdd.setOnClickListener(this)
-        buttonList.setOnClickListener(this)
-        fragmentOne = FragmentOne.newInstance(this)
-        fragmentTwo = FragmentTwo.newInstance(this)
+        supportActionBar?.hide()
+
+
+        val fragmentOne = FragmentOne.newInstance(this)
+        val fragmentTwo = FragmentTwo.newInstance(this)
+        switchFragment(fragmentOne)
+
+        bottom_navigation.setOnNavigationItemSelectedListener {
+            when(it.itemId) {
+                R.id.nav_add -> switchFragment(fragmentOne)
+                R.id.nav_list -> switchFragment(fragmentTwo)
+            }
+            false
+        }
+
 
     }
 
@@ -32,17 +43,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainer, fragment).commit()
     }
-
-//    fun gotToAddNav(view: View) {
-//        fragmentOne = FragmentOne.newInstance(this)
-//        switchFragment(fragmentOne)
-//
-//    }
-//
-//    fun goToListNav(view: View) {
-//        fragmentTwo = FragmentTwo.newInstance(this)
-//        switchFragment(fragmentTwo)
-//    }
 
     override fun menuItem() {
         fragmentOne = FragmentOne.newInstance(this)
@@ -58,16 +58,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         ItemList.add(item)
     }
 
-    override fun onClick(v: View?) {
-        when(v){
-            buttonAdd->{
-                switchFragment(fragmentOne)
-            }
-            buttonList->{
-                switchFragment(fragmentTwo)
-            }
-        }
-    }
+
 
 
 }
