@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_two.*
 class FragmentTwo(private val onNavigationListener: OnNavigationListener) : Fragment() {
 
     private var adapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>? = null
-    private var layoutManager : RecyclerView.LayoutManager?=null
+    private var layoutManager: RecyclerView.LayoutManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,15 +20,17 @@ class FragmentTwo(private val onNavigationListener: OnNavigationListener) : Frag
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_two, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recycler_view.apply{
+        recycler_view.apply {
             //set a LinearLayoutManager to handle ANDROID
             layoutManager = LinearLayoutManager(activity)
             //set the custom adapter to the recycelview
@@ -39,7 +41,7 @@ class FragmentTwo(private val onNavigationListener: OnNavigationListener) : Frag
     companion object {
 
         @JvmStatic
-        fun newInstance(onNavigationListener:OnNavigationListener) =
-                FragmentTwo(onNavigationListener)
+        fun newInstance(onNavigationListener: OnNavigationListener) =
+            FragmentTwo(onNavigationListener)
     }
 }
